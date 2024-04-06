@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -48,6 +49,9 @@ public class MainActivity extends AppCompatActivity {
         myNameIsTV.setTextColor(Color.RED);
         myNameIsTV.setTextSize(50);
 
+        EditText myNameET = findViewById(R.id.nameEditText);
 
+        myNameET.setTextColor(Color.GREEN);
+        myNameET.setTextSize(15);
     }
 }
