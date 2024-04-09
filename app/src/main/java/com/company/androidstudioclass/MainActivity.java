@@ -7,7 +7,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -52,6 +55,25 @@ public class MainActivity extends AppCompatActivity {
 
         Button updateTextBtn = findViewById(R.id.updateTextButton);
 
+        ImageView backgroundImage1 = findViewById(R.id.bgOneImageView);
+        ImageView backgroundImage2 = findViewById(R.id.bgTwoImageView);
+
+        backgroundImage1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                backgroundImage1.setVisibility(View.INVISIBLE);
+                backgroundImage2.setVisibility(View.VISIBLE);
+            }
+        });
+
+        backgroundImage2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                backgroundImage1.setVisibility(View.VISIBLE);
+                backgroundImage2.setVisibility(View.INVISIBLE);
+            }
+        });
+
         updateTextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -59,8 +81,12 @@ public class MainActivity extends AppCompatActivity {
 
                 if(passwordET.getText().toString().trim().equals("1234")) {
                     myNameIsTV.setText("Password Correct!");
+                    backgroundImage1.setVisibility(View.VISIBLE);
+                    backgroundImage2.setVisibility(View.INVISIBLE);
                 } else if (passwordET.getText().toString().trim().equals("4321")) {
                     myNameIsTV.setText("Yay Other Password");
+                    backgroundImage1.setVisibility(View.INVISIBLE);
+                    backgroundImage2.setVisibility(View.VISIBLE);
                 } else {
                     myNameIsTV.setText("Dude wrong password");
                 }
@@ -80,6 +106,47 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        Switch switch1 = findViewById(R.id.switch1);
+        CheckBox checkBox1 = findViewById(R.id.checkBox1);
+
+        checkBox1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(checkBox1.isChecked()) {
+                    backgroundImage1.setVisibility(View.VISIBLE);
+                    backgroundImage2.setVisibility(View.INVISIBLE);
+                    switch1.setText("Img 2");
+                    checkBox1.setText("Img 2 also");
+                    switch1.setChecked(true);
+                } else {
+                    backgroundImage1.setVisibility(View.INVISIBLE);
+                    backgroundImage2.setVisibility(View.VISIBLE);
+                    switch1.setText("Img 1");
+                    checkBox1.setText("Img 1 also");
+                    switch1.setChecked(false);
+                }
+            }
+        });
+
+        switch1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(switch1.isChecked()) {
+                    backgroundImage1.setVisibility(View.VISIBLE);
+                    backgroundImage2.setVisibility(View.INVISIBLE);
+                    switch1.setText("Img 2");
+                    checkBox1.setText("Img 2 also");
+                    checkBox1.setChecked(true);
+                } else {
+                    backgroundImage1.setVisibility(View.INVISIBLE);
+                    backgroundImage2.setVisibility(View.VISIBLE);
+                    switch1.setText("Img 1");
+                    checkBox1.setText("Img 1 also");
+                    checkBox1.setChecked(false);
+                }
+            }
+        });
 
 
     }
