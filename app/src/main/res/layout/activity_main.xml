@@ -70,7 +70,7 @@
         android:id="@+id/updateTextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Update Text"
+        android:text="Submit Password"
         android:layout_marginLeft="30dp"
         app:layout_constraintBottom_toTopOf="@+id/passwordEditText"
         app:layout_constraintStart_toStartOf="parent"

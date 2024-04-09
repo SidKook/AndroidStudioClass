@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
         TextView myNameIsTV = findViewById(R.id.MyNameTextView);
 
-        EditText myNameET = findViewById(R.id.passwordEditText);
+        EditText passwordET = findViewById(R.id.passwordEditText);
 
 
         Button updateTextBtn = findViewById(R.id.updateTextButton);
@@ -55,11 +55,15 @@ public class MainActivity extends AppCompatActivity {
         updateTextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d(TAG,"Button Pressed");
+                Log.d(TAG,"Password Submit Button Pressed");
 
-                myNameIsTV.setText("I like burgers");
-                myNameIsTV.setTextColor(Color.RED);
-                myNameIsTV.setTextSize(50);
+                if(passwordET.getText().toString().trim().equals("1234")) {
+                    myNameIsTV.setText("Password Correct!");
+                } else if (passwordET.getText().toString().trim().equals("4321")) {
+                    myNameIsTV.setText("Yay Other Password");
+                } else {
+                    myNameIsTV.setText("Dude wrong password");
+                }
             }
         });
 
