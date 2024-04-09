@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -45,13 +47,36 @@ public class MainActivity extends AppCompatActivity {
 
         TextView myNameIsTV = findViewById(R.id.MyNameTextView);
 
-        myNameIsTV.setText("I like burgers");
-        myNameIsTV.setTextColor(Color.RED);
-        myNameIsTV.setTextSize(50);
+        EditText myNameET = findViewById(R.id.passwordEditText);
 
-        EditText myNameET = findViewById(R.id.nameEditText);
 
-        myNameET.setTextColor(Color.GREEN);
-        myNameET.setTextSize(15);
+        Button updateTextBtn = findViewById(R.id.updateTextButton);
+
+        updateTextBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG,"Button Pressed");
+
+                myNameIsTV.setText("I like burgers");
+                myNameIsTV.setTextColor(Color.RED);
+                myNameIsTV.setTextSize(50);
+            }
+        });
+
+        Button updateTextBtn2 = findViewById(R.id.updateTextButtonAgain);
+
+        updateTextBtn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG,"Button Pressed 2");
+
+                myNameIsTV.setText("Yay I pressed buttton 2. I'm great");
+                myNameIsTV.setTextColor(Color.GREEN);
+                myNameIsTV.setTextSize(35);
+            }
+        });
+
+
+
     }
 }
